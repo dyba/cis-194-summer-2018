@@ -1,8 +1,12 @@
 module Homework.Week01.Assignment where
 
+import GHC.Show
+import Data.Char
+
 -- #1a
 toDigits :: Integer -> [Integer]
-toDigits = undefined
+toDigits 0 = []
+toDigits i = map toInteger (map digitToInt (show (fromInteger i)))
 
 -- #1b
 toDigitsRev :: Integer -> [Integer]
