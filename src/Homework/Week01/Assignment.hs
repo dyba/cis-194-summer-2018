@@ -1,12 +1,14 @@
 module Homework.Week01.Assignment where
 
-import GHC.Show
-import Data.Char
+toDigitsAux :: Integer -> [Integer] -> [Integer]
+toDigitsAux 0 xs = xs
+toDigitsAux i [] = toDigitsAux (i `div` 10) [i `mod` 10]
+toDigitsAux i xs = toDigitsAux (i `div` 10) ((i `mod` 10) : xs)
 
 -- #1a
 toDigits :: Integer -> [Integer]
 toDigits 0 = []
-toDigits i = map toInteger (map digitToInt (show (fromInteger i)))
+toDigits i = toDigitsAux i []
 
 -- #1b
 toDigitsRev :: Integer -> [Integer]
