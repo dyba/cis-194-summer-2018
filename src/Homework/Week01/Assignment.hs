@@ -12,7 +12,8 @@ toDigits i = toDigitsAux i []
 
 -- #1b
 toDigitsRev :: Integer -> [Integer]
-toDigitsRev = undefined
+toDigitsRev 0 = []
+toDigitsRev n = (n `mod` 10) : toDigitsRev (n `div` 10)
 
 -- #2
 doubleEveryOther :: [Integer] -> [Integer]
