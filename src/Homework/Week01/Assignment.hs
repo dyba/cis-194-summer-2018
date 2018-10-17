@@ -1,19 +1,28 @@
 module Homework.Week01.Assignment where
 
+-- Uses iterative recursion
 toDigitsAux :: Integer -> [Integer] -> [Integer]
 toDigitsAux 0 xs = xs
 toDigitsAux i [] = toDigitsAux (i `div` 10) [i `mod` 10]
 toDigitsAux i xs = toDigitsAux (i `div` 10) ((i `mod` 10) : xs)
 
--- #1a
+-- Other Implementation:
+--
+-- toDigits :: Integer -> [Integer]
+-- toDigits 0 = []
+-- toDigits i = toDigitsAux i []
+
+-- #1a -- using linear recursion
 toDigits :: Integer -> [Integer]
-toDigits 0 = []
-toDigits i = toDigitsAux i []
+toDigits n
+  | n <= 0 = []
+  | otherwise = toDigits (n `div` 10) ++ [n `mod` 10]
 
 -- #1b
 toDigitsRev :: Integer -> [Integer]
-toDigitsRev 0 = []
-toDigitsRev n = (n `mod` 10) : toDigitsRev (n `div` 10)
+toDigitsRev n
+  | n <= 0 = []
+  | otherwise = (n `mod` 10) : toDigitsRev (n `div` 10)
 
 -- #2
 doubleEveryOther :: [Integer] -> [Integer]

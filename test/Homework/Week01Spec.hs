@@ -20,21 +20,17 @@ spec = do
       toDigits 0 `shouldBe` []
 
     it "should return an empty list for negative numbers" $ do
-      pending
       toDigits (-1) `shouldBe` []
 
   describe "toDigitsRev" $ do
     it "should return an empty list for zero" $ do
-      pending
       toDigitsRev 0 `shouldBe` []
 
     it "should return an empty list for negative numbers" $ do
-      pending
       toDigitsRev (-1) `shouldBe` []
       toDigitsRev (-22222) `shouldBe` []
 
     it "should split digits of integer into a list in reverse order" $ do
-      pending
       toDigitsRev 123 `shouldBe` [3,2,1]
       toDigitsRev 431 `shouldBe` [1,3,4]
       toDigitsRev 12 `shouldBe` [2,1]
