@@ -35,7 +35,10 @@ doubleEveryOther (x:y:xs)
 
 -- #3
 sumDigits :: [Integer] -> Integer
-sumDigits = undefined
+sumDigits [] = 0
+sumDigits (x:xs)
+  | x > 9 = sumDigits (toDigits x) + sumDigits xs
+  | otherwise = x + sumDigits xs
 
 -- #4
 validate :: Integer -> Bool
