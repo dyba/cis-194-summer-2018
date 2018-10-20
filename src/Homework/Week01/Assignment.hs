@@ -42,7 +42,7 @@ sumDigits (x:xs)
 
 -- #4
 validate :: Integer -> Bool
-validate = undefined
+validate n = sumDigits (doubleEveryOther (toDigits n)) `mod` 10 == 0
 
 -- #5
 type Peg = String
