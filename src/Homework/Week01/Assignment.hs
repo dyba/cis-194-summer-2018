@@ -18,7 +18,7 @@ toDigits n
   | n <= 0 = []
   | otherwise = toDigits (n `div` 10) ++ [n `mod` 10]
 
--- #1b
+-- #1b -- using linear recursion
 toDigitsRev :: Integer -> [Integer]
 toDigitsRev n
   | n <= 0 = []
@@ -26,7 +26,12 @@ toDigitsRev n
 
 -- #2
 doubleEveryOther :: [Integer] -> [Integer]
-doubleEveryOther = undefined
+doubleEveryOther [] = []
+doubleEveryOther [x] = [x]
+doubleEveryOther [x, y] = [ 2 * x, y ]
+doubleEveryOther (x:y:xs)
+  | length (x:y:xs) `mod` 2 == 0 = (2 * x) : y : doubleEveryOther xs
+  | otherwise = x : doubleEveryOther (y:xs)
 
 -- #3
 sumDigits :: [Integer] -> Integer
