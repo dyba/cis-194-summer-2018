@@ -49,7 +49,11 @@ type Peg = String
 type Move = (Peg, Peg)
 
 hanoi :: Integer -> Peg -> Peg -> Peg -> [Move]
-hanoi = undefined
+hanoi n pa pb pc
+  | n == 0 = []
+  | n == 1 = [(pa, pb)]
+  | n == 2 = [(pa, pc)] ++ hanoi (n-1) pa pb pc ++ [(pc, pb)]
+  | otherwise = hanoi (n-1) pa pc pb ++ [(pa, pb)] ++ hanoi (n-1) pc pb pa
 
 hanoi4 :: Integer -> Peg -> Peg -> Peg -> Peg -> [Move]
 hanoi4 = undefined

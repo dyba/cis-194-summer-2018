@@ -61,19 +61,15 @@ spec = do
 
   describe "hanoi" $ do
     it "should return an empty list for zero discs" $ do
-      pending
       hanoi 0 "a" "b" "c" `shouldBe` []
 
     it "should solve for 1 disc" $ do
-      pending
       hanoi 1 "a" "b" "c" `shouldBe` [("a", "b")]
 
     it "should solve for 2 discs" $ do
-      pending
       hanoi 2 "a" "b" "c" `shouldBe` [("a", "c"), ("a", "b"), ("c", "b")]
 
     it "should solve for 3 discs" $ do
-      pending
       hanoi 3 "a" "b" "c" `shouldBe` [("a", "b"), ("a", "c"), ("b", "c"), ("a", "b"), ("c", "a"), ("c", "b"), ("a", "b")]
 
     it "should have the correct number of moves for 4 discs" $ do
